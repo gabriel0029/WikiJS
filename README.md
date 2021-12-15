@@ -1,8 +1,8 @@
-# Preparação do ambiente
+## Preparação do ambiente
 
-Instalação Docker
+# Instalação Docker
 
-curl -fsSL https://get.docker.com/ | sh
+> curl -fsSL https://get.docker.com/ | sh
 
 Instalação o Kind
 
@@ -20,7 +20,7 @@ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
 
 # Caso use o docker compose
-
+# instalação 
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
 sudo chmod +x /usr/local/bin/docker-compose
