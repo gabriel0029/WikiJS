@@ -1,0 +1,33 @@
+version: "3.7"
+services:
+  db_wikijs:
+    image: postgres:14.1-alpine
+    deploy:
+      resources:
+        limits:
+          cpus: "0.3"
+          memory: 500M
+    volumes:
+    - wikijs_data:/var/lib/postgresql/data
+    env_file:
+    - .env_db_wikijs
+
+  wikijs:
+    image: requarks/wiki:2
+    deploy:
+      resources:
+        limits:
+          cpus: "0.2"
+          memory: 300M
+        reservations:
+          memory: 70M
+    depends_on:
+      - db_wikijs
+    env_file:
+    - .env_wikijs
+    ports:
+      - "80:3000"
+
+volumes:
+  wikijs_data:
+
