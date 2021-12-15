@@ -4,7 +4,7 @@
 ```
  curl -fsSL https://get.docker.com/ | sh
 ```
-Obs: Intalará a versão mais recente.
+Obs: Instalará a versão mais recente.
 
 ### Instalação o Kind
 ```
