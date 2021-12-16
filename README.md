@@ -28,8 +28,23 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 ## Kind
 
 ### Configuração inicial
+Crei o arquivo kind-cluster.yaml, servirá para ter um padrão de criação do seu cluster. Nesse exmplo é usado apenas um contrlplane e um worker.
 
-### iniciando o kind
+![Captura de tela de 2021-12-16 09-59-02](https://user-images.githubusercontent.com/87427032/146431141-b1c99e59-8d2e-46f2-a64c-e3ca33bc42eb.png)
+
+
+- Iniciando o kind
+```
+#kind create clusters -name wikijs --config kind-cluster.yaml
+```
+- Verificando os nós
+```
+kubectl get nodes
+```
+
+### Subindo o banco e aplicações
+
+
 
 ## Docker-compose
 
@@ -64,7 +79,7 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 ```
 #docker-compose stop     
 ```
-- Finalizando e apagando tudo relacionado as containers.
+- Finalizando e apagando tudo relacionado aos containers.
 ```
 #docker-compose down     
 ``` 
