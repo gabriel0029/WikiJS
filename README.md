@@ -2,7 +2,7 @@
 
 ### Instalação Docker
 ```
- curl -fsSL https://get.docker.com/ | sh
+curl -fsSL https://get.docker.com/ | sh
 ```
 Obs: Instalará a versão mais recente.
 
@@ -25,6 +25,33 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 ```
+## Kind
+
+### Configuração inicial
+
+### iniciando o kind
+
+## Docker-compose
+
+### Execudando o container
+
+#docker-compose pull    # Faz o downloada das imagens
+#docker-compose up -d   # Inicia em modo demond (2º plano).
+
+### Verificando os containers
+
+#docker container ls                       # Lista os containers em execução.
+#docker container logs -f ID_Container     # Traz os logs do serviço em execução.
+#docker container inspect ID_Container     # Traz um detalhamento do container.
+#docker container stats                    # Traz o status dos containers.
+
+### finalizando container
+
+#docker-compose stop     # Finaliza (desliga), os containers.
+#docker-compose down     # Finaliza e apaga tudo relacionado as containrs.
+ 
+
+
 
 ### Primeiro acesso
 Acesse em seu navegador http://ip_de_seu_servidor. Será carregado a página para a criação da conta de administrador, preencha os dados exigidos e clique e install para proceguir.
