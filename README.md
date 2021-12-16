@@ -32,6 +32,7 @@ Acesse em seu navegador http://ip_de_seu_servidor. Será carregado a página par
 
 ### Criando a primeira página.
 Faça o logon na página 
+
 ![Captura de tela de 2021-12-16 09-48-07](https://user-images.githubusercontent.com/87427032/146381133-71d47475-1fad-4d1c-a9a0-60a1d8613972.png)
 
 Após o logon, será apresentado a tela de boas vindas, que também já trará a opção de criar sua primeira página.
