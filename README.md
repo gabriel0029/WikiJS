@@ -49,6 +49,6 @@ Obs: tem muitas possibilidade de personalização.
 Agora é só adicionar o conteúdo, uma página de boas vindas, um texto simples, vai da sua imaginação. Finalizado clique em "CREATE"
 ![Captura de tela de 2021-12-16 09-50-59](https://user-images.githubusercontent.com/87427032/146383638-c166499d-2fb4-4efb-a34d-abaae2c2ab65.png)
 
-Pronto, sua página foi criada e a partir desse momento você tem sua própria wiki e poderá criar os textos, tutoriais, dicas etc.
+Pronto, sua página foi criada e a partir desse momento você tem sua própria wiki e poderá criar os textos, tutoriais, dicas, etc.
 ![Captura de tela de 2021-12-16 09-51-35](https://user-images.githubusercontent.com/87427032/146383808-e4e244d3-ebf2-4aeb-8629-613bc60680b0.png)
 
