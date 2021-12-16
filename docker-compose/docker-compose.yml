@@ -11,6 +11,8 @@ services:
     - wikijs_data:/var/lib/postgresql/data
     env_file:
     - .env_db_wikijs
+    ports:
+      - "5432:5432"
 
   wikijs:
     image: requarks/wiki:2
