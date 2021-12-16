@@ -28,12 +28,9 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 ### Primeiro acesso
 Acesse em seu navegador http://ip_de_seu_servidor. Será carregado a página para a criação da conta de administrador, preencha os dados exigidos e clique e install para proceguir.
-
 ![Captura de tela de 2021-12-16 09-46-53](https://user-images.githubusercontent.com/87427032/146380846-5c95805a-09dd-4058-884c-d1ffa09a26d8.png)
 
-
 ### Criando a primeira página.
-
 Faça o logon na página 
 ![Captura de tela de 2021-12-16 09-48-07](https://user-images.githubusercontent.com/87427032/146381133-71d47475-1fad-4d1c-a9a0-60a1d8613972.png)
 
