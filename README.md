@@ -34,27 +34,40 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 ## Docker-compose
 
 ### Execudando o container
-- Faz o download das imagens.
-´´´
-#docker-compose pull    
-#docker-compose up -d   # Inicia em modo demond (2º plano).
-´´´
+- Fazer o download das imagens.
+```
+#docker-compose pull 
+```
+- Iniciando em modo demond (2º plano).
+```
+#docker-compose up -d   
+```
 ### Verificando os containers
-
-#docker container ls                       # Lista os containers em execução.
-
-#docker container logs -f ID_Container     # Traz os logs do serviço em execução.
-
-#docker container inspect ID_Container     # Traz um detalhamento do container.
-
-#docker container stats                    # Traz o status dos containers.
-
+- Listand os containers em execução.
+```
+#docker container ls                       
+```
+- Visualizando os logs do serviço em execução.
+```
+#docker container logs -f ID_Container     
+```
+- Trazendo detalhamento do container.
+```
+#docker container inspect ID_Container
+```
+- Status dos containers.
+```
+#docker container stats                    
+```
 ### finalizando container
-
-#docker-compose stop     # Finaliza (desliga), os containers.
-
-#docker-compose down     # Finaliza e apaga tudo relacionado as containrs.
- 
+- Finalizando (desligando), os containers.
+```
+#docker-compose stop     
+```
+- Finalizando e apagando tudo relacionado as containers.
+```
+#docker-compose down     
+``` 
 
 
 
