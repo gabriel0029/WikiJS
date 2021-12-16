@@ -34,8 +34,8 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 ## Docker-compose
 
 ### Execudando o container
-
-#docker-compose pull    # Faz o downloada das imagens.
+##### Faz o download das imagens.
+#docker-compose pull    
 
 #docker-compose up -d   # Inicia em modo demond (2º plano).
 
