@@ -43,13 +43,14 @@ Após o logon, será apresentado a tela de boas vindas, que também já trará a
 A próxima tela é para que seja escolhido o tipo de editor. Para esse tutorial foi escolhido o tipo Markdown, mas fique a vontade e escolha o que o de sua preferência.
 ![Captura de tela de 2021-12-16 09-48-24](https://user-images.githubusercontent.com/87427032/146381853-be634aaa-2f26-407e-9332-f400854a8cad.png)
 
-Coloque um titulo na pagina, descrição e dê um "OK". 
+Coloque um título na página, descrição e dê um "OK". 
 ![Captura de tela de 2021-12-16 09-50-08](https://user-images.githubusercontent.com/87427032/146383258-4a1c2e68-9437-45f5-b304-08677d974cb7.png)
+
 Obs: tem muitas possibilidade de personalização.
 
-Agora é só adiconar o conteúdo, uma pagina de boas vindas, um testo simple, vai da sua imaginação. Finalizado clique em "CREATE"
+Agora é só adicionar o conteúdo, uma página de boas vindas, um texto simples, vai da sua imaginação. Finalizado clique em "CREATE"
 ![Captura de tela de 2021-12-16 09-50-59](https://user-images.githubusercontent.com/87427032/146383638-c166499d-2fb4-4efb-a34d-abaae2c2ab65.png)
 
-Promto, sua página foi crada e apartir desse momento você tem sua propria wiki e poderá criar os textos, tutorias, diacas etc.
+Pronto, sua página foi criada e a partir desse momento você tem sua própria wiki e poderá criar os textos, tutoriais, dicas etc.
 ![Captura de tela de 2021-12-16 09-51-35](https://user-images.githubusercontent.com/87427032/146383808-e4e244d3-ebf2-4aeb-8629-613bc60680b0.png)
 
