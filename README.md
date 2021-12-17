@@ -28,28 +28,51 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 ## Kind
 
 ### Configuração inicial
-Crei o arquivo kind-cluster.yaml, servirá para ter um padrão de criação do seu cluster. Nesse exmplo é usado apenas um contrlplane e um worker.
+Crei o arquivo kind-cluster.yml, servirá para ter um padrão de criação do seu cluster. Nesse exmplo é usado apenas um contrlplane e um worker.
 
-![Captura de tela de 2021-12-16 09-59-02](https://user-images.githubusercontent.com/87427032/146431141-b1c99e59-8d2e-46f2-a64c-e3ca33bc42eb.png)
-
+![Captura de tela de 2021-12-17 09-04-57](https://user-images.githubusercontent.com/87427032/146542386-23acdb1b-ff6c-4b8f-bc65-53d0d2de3a91.png)
 
 - Iniciando o kind
 ```
-#kind create clusters -name wikijs --config kind-cluster.yaml
+#kind create cluster --name wikijs --config kind-cluster.yml
 ```
 - Verificando os nós
 ```
-kubectl get nodes
+#kubectl get nodes
 ```
 
 ### Subindo o banco e aplicações
+Obtendo informações dos pods espeficico.
 
+kubectl apply -f deployment.yml
+kubectl apply -f deployment.yml
+kubectl apply -f deployment.yml
+kubectl apply -f deployment.yml
+
+- Obtendo informações dos pods, deployments, services, etc.
+```
+#kubectl get all
+```
+- Obtendo informações de um pod espeficico.
+```
+#kubectl get pod/id_pod
+```
+- Obtendo informações detalhadas de um pod espeficico.
+```
+#kubectl describe pod/id_pod
+```
+### Para mais informação 
+
+```
+#kubectl --help
+```
 
 
 ## Docker-compose
+Caso use o docker compose faça o download dos arquivos, eles se encontram loga acima. aṕos isso entre no diretório para que possamos executar os containers.
 
 ### Execudando o container
-- Fazer o download das imagens.
+- Fazer o download das imagens dos containers.
 ```
 #docker-compose pull 
 ```
