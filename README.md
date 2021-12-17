@@ -26,6 +26,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 ```
 ## Kind
+O kind foi implementado para simular clusters Kubernetes em maquinas locais utilizando containers, com isso pode-se simular um ambiente minimo ideal de cluster kubernets (3 control-planes e 3 works).
 
 ### Configuração inicial
 Crei o arquivo kind-cluster.yml, servirá para ter um padrão de criação do seu cluster. Nesse exmplo é usado apenas um contrlplane e um worker.
