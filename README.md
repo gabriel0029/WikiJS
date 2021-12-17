@@ -74,12 +74,12 @@ Caso use o docker compose faça o download dos arquivos, eles se encontram loga 
 
 - Crie um diretório para deixar organizado e acesse ele. 
 ```
-mkdir docker-wikijs
-cd docker-wikijs/
+# mkdir docker-wikijs
+# cd docker-wikijs/
 ```
 - crie o docker-compose.yml
 ```
-vim docker-compose.yml
+# vim docker-compose.yml
 
 version: "3.7"
 services:
@@ -117,14 +117,14 @@ Obs: Cuidado com a identação, caso esteja mau identado, dará erro e seu conta
 
 - Crie os arquivos de variáveis
 ```
-vim .env_db_wikijs 
+# vim .env_db_wikijs 
 
 POSTGRES_DB=wiki
 POSTGRES_PASSWORD=wikijsrocks
 POSTGRES_USER=wikijs
 ```
 ```
-vim .env_wikijs 
+# vim .env_wikijs 
 
 DB_TYPE=postgres
 DB_HOST=db_wikijs
@@ -134,6 +134,11 @@ DB_PASS=wikijsrocks
 DB_NAME=wiki
 
 ```
+- Listando os arquivos
+```
+#ls -lha
+```
+![Captura de tela de 2021-12-17 14-21-19](https://user-images.githubusercontent.com/87427032/146583545-71564ea4-8aaf-4928-a6e3-26dde2bb7fd1.png)
 
 
 ### Execudando o container
