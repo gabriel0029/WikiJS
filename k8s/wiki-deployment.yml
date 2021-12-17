@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wiki
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wiki
+  template:
+    metadata:
+      labels:
+        app: wiki
+    spec:
+      containers:
+      - name: wiki
+        image: requarks/wiki:2
+        ports:
+        - containerPort: 3000
+        env: 
+        - name: DB_TYPE
+            valueFrom:
+              configMapKeyRef:
+                key: DB_TYPE
+                name: db-wiki-config
+        - name: DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                key: DB_HOST
+                name: db-wiki-config
+        - name: DB_PORT
+            valueFrom:
+              configMapKeyRef:
+                key: DB_PORT
+                name: db-wiki-config
+        - name: DB_USER
+            valueFrom:
+              configMapKeyRef:
+                key: DB_USER
+                name: db-wiki-config
+        - name: DB_PASS
+            valueFrom:
+              secretKeyRef:
+                name: postgres 
+                key: password  
+        - name: DB_NAME
+            valueFrom:
+              configMapKeyRef:
+                key: DB_NAME
+                name: db-wiki-config 
+        

@@ -1,0 +1,9 @@
+apiVersion: v1 
+kind: ConfigMap
+metadata:
+  name: db-config
+  namespace: wikijs
+data:
+  POSTGRES_DB: "wiki"
+#  POSTGRES_PASSWORD: "wikijsrocks"
+  POSTGRES_USER: "wikijs" 
