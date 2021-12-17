@@ -64,7 +64,7 @@ kubectl get nodes
 ```
 - Visualizando os logs do serviço em execução.
 ```
-#docker container logs -f ID_Container     
+#docker container logs -f ID_Container     #Opção -f retorna o que é acrescentado de novo ao arquivo de log da aplicação.
 ```
 - Trazendo detalhamento do container.
 ```
