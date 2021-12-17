@@ -70,7 +70,71 @@ kubectl apply -f deployment.yml
 
 
 ## Docker-compose
-Caso use o docker compose faça o download dos arquivos, eles se encontram loga acima. aṕos isso entre no diretório para que possamos executar os containers.
+Caso use o docker compose faça o download dos arquivos, eles se encontram loga acima. aṕos isso entre no diretório para que possamos executar os containers. Ou se preferir criar os aquivos, siga os passos abaixo:
+
+- Crie um diretório para deixar organizado e acesse ele. 
+```
+mkdir docker-wikijs
+cd docker-wikijs/
+```
+- crie o docker-compose.yml
+```
+vim docker-compose.yml
+
+version: "3.7"
+services:
+  db_wikijs:
+    image: postgres:14.1-alpine
+    deploy:
+      resources:
+        limits:
+          cpus: "0.3"
+          memory: 500M
+    volumes:
+    - wikijs_data:/var/lib/postgresql/data
+    env_file:
+    - .env_db_wikijs
+    ports:
+    - "5432:5432"
+
+  wikijs:
+    image: requarks/wiki:2
+    deploy:
+      resources:
+        limits:
+          cpus: "0.2"
+          memory: 300M
+        reservations:
+          memory: 70M
+    depends_on:
+    - db_wikijs
+    env_file:
+    - .env_wikijs
+    ports:
+    - "80:3000"
+```
+Obs: Cuidado com a identação, caso esteja mau identado, dará erro e seu container não será executado.
+
+- Crie os arquivos de variáveis
+```
+vim .env_db_wikijs 
+
+POSTGRES_DB=wiki
+POSTGRES_PASSWORD=wikijsrocks
+POSTGRES_USER=wikijs
+```
+```
+vim .env_wikijs 
+
+DB_TYPE=postgres
+DB_HOST=db_wikijs
+DB_PORT=5432
+DB_USER=wikijs
+DB_PASS=wikijsrocks
+DB_NAME=wiki
+
+```
+
 
 ### Execudando o container
 - Fazer o download das imagens dos containers.
