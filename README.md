@@ -37,20 +37,34 @@ Crei o arquivo kind-cluster.yml, servirá para ter um padrão de criação do se
 ```
 #kind create cluster --name wikijs --config kind-cluster.yml
 ```
+![Captura de tela de 2021-12-17 08-57-12](https://user-images.githubusercontent.com/87427032/146637281-a241764b-fc52-4d1b-a1d7-c34aa4029dfa.png)
+
 - Verificando os nós
 ```
 #kubectl get nodes
 ```
+![Captura de tela de 2021-12-17 08-59-02](https://user-images.githubusercontent.com/87427032/146637424-6fb27bc7-832f-408f-93f5-2057212722e2.png)
 
 ### Subindo o banco e aplicações
 Obtendo informações dos pods espeficico.
+```
+kubectl apply -f deployment.yml
+```
 
+```
 kubectl apply -f deployment.yml
-kubectl apply -f deployment.yml
-kubectl apply -f deployment.yml
-kubectl apply -f deployment.yml
+```
 
-- Obtendo informações dos pods, deployments, services, etc.
+```
+kubectl apply -f deployment.yml
+```
+
+```
+kubectl apply -f deployment.yml
+```
+
+
+- Obtendo informações dos pods, deployments, services, etc existentes.
 ```
 #kubectl get all
 ```
