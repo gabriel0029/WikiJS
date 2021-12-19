@@ -31,19 +31,6 @@ O kind foi implementado para simular clusters Kubernetes em maquinas locais util
 ### Configuração inicial
 Crei o arquivo kind-cluster.yaml, servirá para ter um padrão de criação do seu cluster. Nesse exmplo é usado apenas um contrlplane e um worker.
 
-```
-# vim kind-cluster.yaml
-
-kind: Cluster
-apiVersion: kind.x-k8s.io/v1alpha4
-nodes:
-- role: control-plane
-- role: worker
-  extraPortMappings:
-  - containerPort: 30000
-    hostPort: 80
-```
-
 ![Captura de tela de 2021-12-17 09-04-57](https://user-images.githubusercontent.com/87427032/146542386-23acdb1b-ff6c-4b8f-bc65-53d0d2de3a91.png)
 
 - Iniciando o kind
@@ -74,6 +61,8 @@ kubectl apply -f DB-ConfigMap.yaml
 kubectl apply -f Wiki-ConfigMap.yaml 
 kubectl get ConfigMap -n wikiapp
 ```
+obs. a opção -n é utilizado nesse exemplo para informar o namespace aquem essa aplicação pertencerá.
+
 ![Captura de tela de 2021-12-19 15-28-39](https://user-images.githubusercontent.com/87427032/146687613-50dcbf3a-6c5b-402a-9739-c0e166781245.png)
 
 - Criando e verificando as secrets (será usada para proteger a senha do bando e applicação).
@@ -110,25 +99,21 @@ kubectl get all -n wikiapp
 
 - Verificando os Deploys atravez dos logs .
 ```
-kubectl logs -f pod/<id_do_pod> -n <namespace>
+kubectl logs -f pod/<id_do_pod> -n wikiapp
 ```
 ![Captura de tela de 2021-12-19 15-39-55](https://user-images.githubusercontent.com/87427032/146687873-f6dde7d1-d948-4013-909a-3bb60b3298d2.png)
 ![Captura de tela de 2021-12-19 15-40-25](https://user-images.githubusercontent.com/87427032/146687877-7ea459db-aab8-497d-9514-05ea458157ea.png)
 
+#### Obtendo informações mais detalhada dos pods, dos deployments, dos services, etc existentes.
+
+- É possivel obter informações mais detalhadas de todos os parametros do kubernetes com a opção describe
+```
+#kubectl describe pod/<id_do_pod> -n wikiapp
+```
+![Captura de tela de 2021-12-19 16-24-36](https://user-images.githubusercontent.com/87427032/146688120-1b9d0e09-7b2b-41d2-aebc-85169f8266d7.png)
+![Captura de tela de 2021-12-19 16-24-41](https://user-images.githubusercontent.com/87427032/146688122-87ee516d-b9c3-4d34-90fb-b8bf57678a87.png)
 
 
-- Obtendo informações dos pods, deployments, services, etc existentes.
-```
-#kubectl get all
-```
-- Obtendo informações de um pod espeficico.
-```
-#kubectl get pod/id_pod
-```
-- Obtendo informações detalhadas de um pod espeficico.
-```
-#kubectl describe pod/id_pod
-```
 ### Para mais informação 
 
 ```
