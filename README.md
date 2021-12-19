@@ -106,7 +106,7 @@ kubectl logs -f pod/<id_do_pod> -n wikiapp
 
 #### Obtendo informações mais detalhada dos pods, dos deployments, dos services, etc existentes.
 
-- É possivel obter informações mais detalhadas de todos os parametros do kubernetes com a opção describe
+- É possível obter informações mais detalhadas de todos os parâmetros do kubernetes com a opção describe. Nesse exemplo é possível trazer as informações de nome, ip, volume variáveis de ambiente, porta do serviço, eventos, etc.
 ```
 #kubectl describe pod/<id_do_pod> -n wikiapp
 ```
