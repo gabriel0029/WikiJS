@@ -92,23 +92,28 @@ kubectl get services -n wikiapp
 ```
 ![Captura de tela de 2021-12-19 15-31-16](https://user-images.githubusercontent.com/87427032/146687670-0c96864a-86ab-487e-be2b-9aa584f9995f.png)
 
-- Criando e verificando os Volumes persistentes (Para garantir que os dados).
+- Criando e verificando os Volumes persistentes (Para garantir que os dados não suman caso o pod seja encerrado).
 ```
 kubectl apply -f DB-Volume-PV-PVC.yaml 
 kubectl get pv -n wikiapp
 kubectl get pvc -n wikiapp
 ```
+![Captura de tela de 2021-12-19 15-32-19](https://user-images.githubusercontent.com/87427032/146687752-fc8eb6f8-9460-4109-9b18-c062335a7420.png)
 
+- Criando e verificando os Deploys.
 ```
 kubectl apply -f DB-Deployment.yaml 
 kubectl apply -f Wiki-Deployment.yaml 
 kubectl get all -n wikiapp
 ```
+![Captura de tela de 2021-12-19 15-39-25](https://user-images.githubusercontent.com/87427032/146687802-d1a0a83a-f9bd-43d4-bdc0-8a840e7cc23c.png)
 
+- Verificando os Deploys atravez dos logs .
 ```
-kubectl logs -f pod/db-54b79cfcff-hn9fm -n wikiapp
-kubectl logs -f pod/wiki-65585689c8-kz6zw -n wikiapp
+kubectl logs -f pod/<id_do_pod> -n <namespace>
 ```
+![Captura de tela de 2021-12-19 15-39-55](https://user-images.githubusercontent.com/87427032/146687873-f6dde7d1-d948-4013-909a-3bb60b3298d2.png)
+![Captura de tela de 2021-12-19 15-40-25](https://user-images.githubusercontent.com/87427032/146687877-7ea459db-aab8-497d-9514-05ea458157ea.png)
 
 
 
