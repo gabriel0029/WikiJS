@@ -29,7 +29,20 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 O kind foi implementado para simular clusters Kubernetes em maquinas locais utilizando containers, com isso pode-se simular um ambiente minimo ideal de cluster kubernets (3 control-planes e 3 works).
 
 ### Configuração inicial
-Crei o arquivo kind-cluster.yml, servirá para ter um padrão de criação do seu cluster. Nesse exmplo é usado apenas um contrlplane e um worker.
+Crei o arquivo kind-cluster.yaml, servirá para ter um padrão de criação do seu cluster. Nesse exmplo é usado apenas um contrlplane e um worker.
+
+```
+# vim kind-cluster.yaml
+
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+- role: worker
+  extraPortMappings:
+  - containerPort: 30000
+    hostPort: 80
+```
 
 ![Captura de tela de 2021-12-17 09-04-57](https://user-images.githubusercontent.com/87427032/146542386-23acdb1b-ff6c-4b8f-bc65-53d0d2de3a91.png)
 
@@ -37,7 +50,7 @@ Crei o arquivo kind-cluster.yml, servirá para ter um padrão de criação do se
 ```
 #kind create cluster --name wikijs --config kind-cluster.yml
 ```
-![Captura de tela de 2021-12-17 08-57-12](https://user-images.githubusercontent.com/87427032/146637281-a241764b-fc52-4d1b-a1d7-c34aa4029dfa.png)
+![Captura de tela de 2021-12-19 15-22-14](https://user-images.githubusercontent.com/87427032/146687309-b1c01c43-c128-4d33-b426-af106d31432a.png)
 
 - Verificando os nós
 ```
@@ -46,22 +59,57 @@ Crei o arquivo kind-cluster.yml, servirá para ter um padrão de criação do se
 ![Captura de tela de 2021-12-17 08-59-02](https://user-images.githubusercontent.com/87427032/146637424-6fb27bc7-832f-408f-93f5-2057212722e2.png)
 
 ### Subindo o banco e aplicações
-Obtendo informações dos pods espeficico.
+
+- Criando e verificando o namespaces criado. 
 ```
-kubectl apply -f deployment.yml
+kubectl apply -f Wiki-NameSpace.yaml 
+kubectl get namespaces
+
+```
+![Captura de tela de 2021-12-19 15-26-01](https://user-images.githubusercontent.com/87427032/146687541-b4a60d18-1d05-48b2-805f-295a77c3b95b.png)
+
+- Criando e verificando as variaveis de Ambiente.
+```
+kubectl apply -f DB-ConfigMap.yaml 
+kubectl apply -f Wiki-ConfigMap.yaml 
+kubectl get ConfigMap -n wikiapp
+```
+![Captura de tela de 2021-12-19 15-28-39](https://user-images.githubusercontent.com/87427032/146687613-50dcbf3a-6c5b-402a-9739-c0e166781245.png)
+
+- Criando e verificando as secrets (será usada para proteger a senha do bando e applicação).
+```
+kubectl apply -f DB-Secret.yaml 
+kubectl apply -f Wiki-Secret.yaml 
+kubectl get secrets -n wikiapp
+```
+![Captura de tela de 2021-12-19 15-29-24](https://user-images.githubusercontent.com/87427032/146687652-af63fc57-c550-40d4-8a43-09102c294770.png)
+
+- Criando e verificando os Services.
+```
+kubectl apply -f DB-Service.yaml 
+kubectl apply -f Wiki-Service.yaml 
+kubectl get services -n wikiapp
+```
+![Captura de tela de 2021-12-19 15-31-16](https://user-images.githubusercontent.com/87427032/146687670-0c96864a-86ab-487e-be2b-9aa584f9995f.png)
+
+- Criando e verificando os Volumes persistentes (Para garantir que os dados).
+```
+kubectl apply -f DB-Volume-PV-PVC.yaml 
+kubectl get pv -n wikiapp
+kubectl get pvc -n wikiapp
 ```
 
 ```
-kubectl apply -f deployment.yml
+kubectl apply -f DB-Deployment.yaml 
+kubectl apply -f Wiki-Deployment.yaml 
+kubectl get all -n wikiapp
 ```
 
 ```
-kubectl apply -f deployment.yml
+kubectl logs -f pod/db-54b79cfcff-hn9fm -n wikiapp
+kubectl logs -f pod/wiki-65585689c8-kz6zw -n wikiapp
 ```
 
-```
-kubectl apply -f deployment.yml
-```
 
 
 - Obtendo informações dos pods, deployments, services, etc existentes.
