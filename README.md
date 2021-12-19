@@ -30,8 +30,16 @@ O kind foi implementado para simular clusters Kubernetes em maquinas locais util
 
 ### Configuração inicial
 Crei o arquivo kind-cluster.yaml, servirá para ter um padrão de criação do seu cluster. Nesse exmplo é usado apenas um contrlplane e um worker.
+![Captura de tela de 2021-12-19 16-44-51](https://user-images.githubusercontent.com/87427032/146688643-7687a0c5-31d3-4ed2-9dd7-9de34673c3e0.png)
 
-![Captura de tela de 2021-12-17 09-04-57](https://user-images.githubusercontent.com/87427032/146542386-23acdb1b-ff6c-4b8f-bc65-53d0d2de3a91.png)
+##### Obs. Como o kind é cluster kubernets sendo executado em docker, é preciso ser conficgurado no arquivo kind-cluster.yaml as opções abaixo, pois é preciso fazer um binding de portas, porta local com a porta de um container que estará com o cluster kubernets. No caso desse exmplo será a porta do container 30000 com a porta local 80.
+```
+extraPortMappings:
+  - containerPort: 30000
+    hostPort: 80
+```
+![Captura de tela de 2021-12-19 16-43-27](https://user-images.githubusercontent.com/87427032/146688613-7d6c23c2-a2df-4370-b9c8-aa3fc9ddcbf5.png)
+
 
 - Iniciando o kind
 ```
