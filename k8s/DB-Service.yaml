@@ -1,0 +1,13 @@
+# Service do banco Postgres
+ 
+apiVersion: v1
+kind: Service
+metadata:
+  name: db
+  namespace: wikiapp
+spec:
+  selector:
+    app: db
+  ports:
+  - port: 5432
+  type: ClusterIP

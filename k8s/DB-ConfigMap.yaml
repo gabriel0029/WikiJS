@@ -1,0 +1,10 @@
+# ConfigMaps do banco Postgres
+
+apiVersion: v1 
+kind: ConfigMap
+metadata:
+  name: db-config
+  namespace: wikiapp
+data:
+  POSTGRES_DB: wiki
+  POSTGRES_USER: wikijs

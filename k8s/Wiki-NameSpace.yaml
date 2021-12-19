@@ -1,0 +1,8 @@
+# NameSpace do banco Postgres
+
+apiVersion: v1 
+kind: Namespace
+metadata:
+  name: wikiapp
+  labels:
+    name: wikiapp

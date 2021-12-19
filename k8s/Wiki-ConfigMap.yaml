@@ -1,0 +1,14 @@
+# ConfigMaps da aplicação Wiki.JS
+
+apiVersion: v1 
+kind: ConfigMap
+metadata:
+  name: wiki-config
+  namespace: wikiapp
+data:
+  DB_TYPE: postgres
+  DB_HOST: db
+  DB_PORT: "5432"
+  DB_USER: wikijs
+  DB_NAME: wiki
+

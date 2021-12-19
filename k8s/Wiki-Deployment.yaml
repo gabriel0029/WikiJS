@@ -1,0 +1,58 @@
+# Deployment da aplicação Wiki.js
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wiki
+  namespace: wikiapp 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wiki
+  template:
+    metadata:
+      labels:
+        app: wiki
+    spec:
+      containers:
+      - name: wiki
+        image: requarks/wiki:2
+        resources:
+          limits:
+            memory: "300Mi"
+            cpu: "200m"
+        ports:
+        - containerPort: 3000
+        env:
+          - name: DB_TYPE
+            valueFrom:
+              configMapKeyRef:
+                key: DB_TYPE
+                name: wiki-config
+          - name: DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                key: DB_HOST
+                name: wiki-config
+          - name: DB_PORT
+            valueFrom:
+              configMapKeyRef:
+                key: DB_PORT
+                name: wiki-config
+          - name: DB_USER
+            valueFrom:
+              configMapKeyRef:
+                key: DB_USER
+                name: wiki-config
+          - name: DB_PASS
+            valueFrom:
+              secretKeyRef:
+                name: wiki-pass
+                key: password
+          - name: DB_NAME
+            valueFrom:
+              configMapKeyRef:
+                key: DB_NAME
+                name: wiki-config
+
