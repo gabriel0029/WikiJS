@@ -29,7 +29,7 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 O kind foi implementado para simular clusters Kubernetes em maquinas locais utilizando containers, com isso pode-se simular um ambiente minimo ideal de cluster kubernets (3 control-planes e 3 works).
 
 ### Configuração inicial
-Crei o arquivo kind-cluster.yaml, servirá para ter um padrão de criação do seu cluster. Nesse exmplo é usado apenas um contrlplane e um worker.
+Crie o arquivo kind-cluster.yaml, servirá para ter um padrão de criação do seu cluster. Nesse exmplo é usado apenas um contrlplane e um worker.
 
 ![Captura de tela de 2021-12-19 16-44-51](https://user-images.githubusercontent.com/87427032/146688643-7687a0c5-31d3-4ed2-9dd7-9de34673c3e0.png)
 
